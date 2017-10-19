@@ -1,22 +1,19 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Ingredients from './Ingredients'
 import DeleteButton from './DeleteButton'
 import EditButton from './EditButton'
 
-class Recipe extends Component {
-
-  render() {
-    const {onRemoveBtnClick, recipe, onEditBtnClick} = this.props
+function Recipe (props) {
+  
     return (
           <div>
             <div className="text-right" >
-              <EditButton title={recipe.title} ingredients={recipe.ingredients} handleClick={onEditBtnClick}/>
-              <DeleteButton  title={recipe.title} handleClick={onRemoveBtnClick}/>
+              <EditButton title={props.recipe.title} ingredients={props.recipe.ingredients} handleClick={props.onEditBtnClick}/>
+              <DeleteButton  title={props.recipe.title} handleClick={props.onRemoveBtnClick}/>
             </div>
-            <Ingredients ingredients={recipe.ingredients} />
+            <Ingredients ingredients={props.recipe.ingredients} />
         </div>
     )
-  }
 }
 
 export default Recipe;
